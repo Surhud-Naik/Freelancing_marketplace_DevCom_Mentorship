@@ -7,6 +7,7 @@ import Register from "./pages/register";
 
 function App() {
   return (
+
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -18,5 +19,3 @@ function App() {
     </BrowserRouter>
   );
 }
-
-export default App;

@@ -2,24 +2,18 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
-from .models import Book
-from .serializers import BookSerializer
-
-class BookCreateAPIView(APIView):
+from .serializers import ServiceSerializer,TransactionSerializer
+from .models import Service,transaction
+class ServiceCreateAPIView(APIView):
     def post(self, request):
-        serializer = BookSerializer(data=request.data)
+        serializer = ServiceSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-@api_view(['GET'])
-def hello(request):
-    return Response({"message": "Hello from Django API"})
-
-class BookCreateAPIView(APIView):
+class TransactionCreateAPIView(APIView):
     def post(self, request):
-        serializer = BookSerializer(data=request.data)
+        serializer = TransactionSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

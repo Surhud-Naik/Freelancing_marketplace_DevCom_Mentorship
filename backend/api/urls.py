@@ -1,11 +1,7 @@
 from django.urls import path
-from .views import hello
-from .views import BookCreateAPIView
-
+from .views import ServiceCreateAPIView, TransactionCreateAPIView
+from django.http import HttpResponse
 urlpatterns = [
-    path('books/', BookCreateAPIView.as_view(), name='book-create'),
-]
-
-urlpatterns = [
-    path('hello/', hello),
+    path('services/', ServiceCreateAPIView.as_view(), name='services-create'),
+    path('transactions/', TransactionCreateAPIView.as_view(), name='transactions-create'),
 ]
