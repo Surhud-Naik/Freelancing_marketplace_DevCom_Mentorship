@@ -1,8 +1,8 @@
 import React from 'react'
 import {useState,useEffect} from 'react'
 import axios from "axios"
-import Sidebar from './components/Sidebar.jsx';
-import Maincontent from './components/Maincontent.jsx';
+import Sidebar from '../components/Sidebar.jsx';
+import Maincontent from '../components/Maincontent.jsx';
 
 
 export default function Home() {
@@ -56,13 +56,11 @@ if(refreshToken){
 }
   return (
     <div>
-      {isLoggedIn ? ( <>
+      <>
       <div><Sidebar/></div>
-      <div>/Maincontent</div>
+      <div><Maincontent/></div>
       <button onClick={handleLogout}>Logout</button>
-     </> ):( <h2 className='request'>
-        Please Login
-      </h2> )}
+     </>
     </div>
   )
 }
