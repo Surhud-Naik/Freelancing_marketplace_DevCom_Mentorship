@@ -82,7 +82,7 @@ input::placeholder{
     border-radius: 55px;
     padding: 18px 15px 18px 15px;
     height: 79px;
-    width: fill;
+    width: stretch;
 
 }
 
