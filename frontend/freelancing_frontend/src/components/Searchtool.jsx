@@ -9,7 +9,7 @@ export default function Searchtool() {
   return (
     <div  className="bg searchTool">
       
-      <div class = "heading-text">Welcome to Website Name!</div>
+      <div className = "heading-text">Welcome to Website Name!</div>
       <div className = "search-bar">
         <img className = "magnify-glass"src = {magnifying_glass}></img>
         <input type='Search' className = "input-field" placeholder='What are you looking for..   '></input>

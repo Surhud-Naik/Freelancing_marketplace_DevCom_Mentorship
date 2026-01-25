@@ -5,7 +5,7 @@ import Hotpicks from './Hotpicks'
 
 export default function Maincontent() {
   return (
-    <div  class = "mainContent" >
+    <div  className = "mainContent" >
       <Header></Header>
       <Searchtool></Searchtool>
       <Hotpicks></Hotpicks>
