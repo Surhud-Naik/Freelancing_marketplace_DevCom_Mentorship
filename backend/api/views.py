@@ -3,7 +3,6 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 from .serializers import ServiceSerializer,TransactionSerializer
-from .models import Service,transaction
 class ServiceCreateAPIView(APIView):
     def post(self, request):
         serializer = ServiceSerializer(data=request.data)

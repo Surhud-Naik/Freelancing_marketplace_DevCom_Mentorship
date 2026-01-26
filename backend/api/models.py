@@ -1,6 +1,6 @@
 from django.db import models
 class transaction(models.Model):
-    transactionID=models.IntegerField(max_length=100)
+    transactionID=models.IntegerField()
     buyer=models.CharField(max_length=50)
     seller=models.CharField(max_length=50)
     service=models.CharField(max_length=100)

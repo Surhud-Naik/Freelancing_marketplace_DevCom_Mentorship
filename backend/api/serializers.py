@@ -1,6 +1,7 @@
 # api/serializers.py
 from rest_framework import serializers
 from .models import Service
+from .models import transaction
 
 class ServiceSerializer(serializers.ModelSerializer):
     class Meta:
