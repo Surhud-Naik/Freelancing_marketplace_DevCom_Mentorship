@@ -71,9 +71,9 @@
    border-radius:10px;
 }
 body{
-  background-image: url("images.jpg/back.avif");
+  background-image: url("/src/assets/back.avif");
   background-size: cover;
-  background-repeat: no repeat;
+  background-repeat: no-repeat;
   background-position: center;
 }
 .email1{
@@ -101,4 +101,20 @@ body{
   padding: 40px;
   background-color:pink;
 
+}
+.switch {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.switch a {
+  color: #4bbdb7;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.switch a:hover{
+  text-decoration:underline;
 }
