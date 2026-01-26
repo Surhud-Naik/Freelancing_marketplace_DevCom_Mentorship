@@ -1,0 +1,30 @@
+img{
+    width: 40px;
+    height: 40px;
+}
+body{
+
+    background: linear-gradient(
+  135deg,
+  rgba(217, 246, 245, 1) 0%,
+  rgba(236, 242, 255, 1) 35%,
+  rgba(244, 233, 255, 1) 65%,
+  rgba(253, 239, 255, 1) 100%
+);
+}
+*{
+
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Istok Web', sans-serif;
+}
+.container{
+
+    display:flex;
+    
+    width: 90%;
+    height: 100vh;
+     
+
+}

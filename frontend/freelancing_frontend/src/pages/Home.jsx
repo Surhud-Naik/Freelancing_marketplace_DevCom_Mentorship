@@ -3,7 +3,7 @@ import {useState,useEffect} from 'react'
 import axios from "axios"
 import Sidebar from '../components/Sidebar.jsx';
 import Maincontent from '../components/Maincontent.jsx';
-
+import "./home.css"
 
 export default function Home() {
   const [username, setUsername]=useState("")
@@ -55,12 +55,10 @@ if(refreshToken){
   }
 }
   return (
-    <div>
-      <>
+    <div className = "container">
       <div><Sidebar/></div>
       <div><Maincontent/></div>
       <button onClick={handleLogout}>Logout</button>
-     </>
     </div>
   )
 }
