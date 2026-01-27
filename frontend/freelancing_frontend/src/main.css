@@ -29,11 +29,12 @@
     color: #FFFFFF;
     font-size: 60px;
     font-style: bold;
+    margin-left: 1.875rem;
 }
 
 .bg{
     background-image: url("./icons/bg_image.jpeg");
-    background-attachment: fixed;
+    
     background-size: contain;
     border-radius: 20px;
     height: 370px;
@@ -47,7 +48,84 @@
     margin-top: 20px;
     margin-bottom: 10px;
 }
-input::placeholder{
+
+.progress-bar-img{
+
+    width: 1005px;
+    height: 50px;
+
+}
+.next-btn{
+    height: 63px;
+    width: 141px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #52D5D3;
+    border: none;
+    font-size: 30px;
+    margin-right: 44px;
+}
+
+.rate-info-card{
+
+    width: 280px;
+    height: 115px;
+    background-color: #C8A5FFB2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+
+input{
+    font-size: 25px;
+    padding-left: 20px;
+}
+
+.skills-yt-link input::placeholder{
+
+    text-align: center;
+    font-size: 30px;
+}
+.rate-card-field{
+
+
+    position: relative;
+}
+.charge{
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    width: 132px;
+    height: 75px;
+    
+
+}
+.charge-text{
+    font-size: 35px;
+    margin-left: 10px;
+}
+
+.dollar_sign_pos{
+    width: 18px;
+    top: 14px;
+    left: 106px;
+    position: absolute;
+}
+
+.rate-card{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 45px;
+}
+
+.progress-bar-next-btn{
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+.search-bar input::placeholder{
 
     font-size: 30px;
     text-indent: 50px;
@@ -59,8 +137,86 @@ input::placeholder{
     border-radius: 60px;
     padding: 10px;
     background-color: #EFE3FF;
+}
 
 
+.form-btn{
+    background-color: #e7d7ff;
+    width: 535px;
+    height: 53px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    border: none;
+    box-shadow: inset 0px 4px 4px 0px rgba(0,0,0,0.25);
+}
+
+.camera-icon{
+
+    width: 214px;
+    height: 215px;
+    object-fit: contain;
+}
+.form-heading{
+    color:#004342;
+    margin-top: 12px;
+    font-size: 50px;
+    
+
+}
+.form-subHeading{
+
+    color:#004342 ;
+    font-size: 45px;
+    
+    margin-top: 12px;
+
+
+}
+.profile-prompt{
+
+    font-size: 50px;
+    color: #2B0055;
+    width: 281px;
+    height: 216px;
+    text-align: center;
+
+}
+.personal-info-form{
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.image-add{
+    display: flex   ;
+}
+.personal-info input::placeholder{
+
+    font-size: 30px;
+    text-align: center;
+}
+
+.contactNumber{
+    width: 399px;
+}
+.contact-nb-label{
+
+    width: 70px;
+    height: 50px;
+    background-color: #e7d7ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    
+
+}
+.contact_number_form{
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
 }
 .search-bar{
 
@@ -83,6 +239,10 @@ input::placeholder{
     padding: 18px 15px 18px 15px;
     height: 79px;
     width: fill;
+    font-size: 30px;
+    padding-left: 65px;
+    font-family: 'Istok Web', sans-serif;;
+    
 
 }
 
@@ -101,6 +261,7 @@ input::placeholder{
 
 }
 
+
 .hire-freelance-btn-container{
     display: flex;
 }
@@ -111,8 +272,30 @@ input::placeholder{
     height: 45px;
     border:none;
     margin-bottom: 20px;
+    background-color:#E7D7FF;
+    color: #724AB1;
+;
 
 }
+.hire-btn{
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+}
+
+
+.updated-btn-props{
+    background-color: #C8A5FF;
+    color: #2B0055;
+
+
+}
+
+.freelance-btn{
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
 
 
 body{
@@ -147,6 +330,34 @@ body{
     align-self: flex-end; /* moves left */
 
 
+}
+.service-text{
+
+    color: #2B0055;
+    font-size: 45px;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+
+
+}
+
+.form-button input::placeholder{
+    font-size: 35px;
+    text-align: center;
+}
+
+.qualific-ip-field{
+
+    height:160px;
+    width: 710px;
+    
+}
+.text-field input::placeholder{
+    text-align: center;
+    font-size: 40px;
+}
+.form-btn{
+    border: none;
 }
 
 
@@ -200,4 +411,18 @@ body{
 img{
     width: 40px;
     height: 40px;
+}
+button{
+    cursor: pointer;
+}
+
+.subHeading{
+    font-weight: 700;
+    color: #FFFFFF;
+    font-size: 50px;
+    font-style: bold;
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+    margin-left: 1.875rem;
+
 }
