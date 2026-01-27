@@ -15,7 +15,7 @@ function Register() {
     
       <p className="switch">
         Already have an account?{" "}
-        <Link to="/login">Log in</Link>
+        <Link to="/">Log in</Link>
       </p>
     </div>
  </div>
