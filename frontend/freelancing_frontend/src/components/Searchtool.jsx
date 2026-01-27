@@ -1,9 +1,5 @@
-import React from 'react'
 import magnifying_glass from '../icons/magnifying_glass.svg'
 import verify_icon from '../icons/verify_icon.svg'
-import "./Searchtool.css"
-
-
 
 export default function Searchtool() {
   return (

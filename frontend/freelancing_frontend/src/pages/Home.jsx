@@ -58,7 +58,6 @@ if(refreshToken){
     <div className = "container">
       <div><Sidebar/></div>
       <div><Maincontent/></div>
-      <button onClick={handleLogout}>Logout</button>
     </div>
   )
 }

@@ -1,9 +1,13 @@
-.container {
+.login-container {
+    background-image: url("/back.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: 50px;
+    padding: 50px
 }
 .card {
     background: #f7ffff;

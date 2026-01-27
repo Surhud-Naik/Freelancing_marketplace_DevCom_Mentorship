@@ -3,7 +3,7 @@ import "./register.css"
 
 function Register() {
   return (
-    <div className="container">
+    <div className="register-container">
     <div className="card">
       <h1>Create an account</h1>
 

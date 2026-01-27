@@ -1,8 +1,6 @@
-import React from 'react'
 import Header from './Header'
 import Searchtool from './Searchtool'
 import Hotpicks from './Hotpicks'
-import "./Maincontent.jsx"
 
 export default function Maincontent() {
   return (
@@ -10,8 +8,6 @@ export default function Maincontent() {
       <Header></Header>
       <Searchtool></Searchtool>
       <Hotpicks></Hotpicks>
-
-
     </div>
   )  
 }
