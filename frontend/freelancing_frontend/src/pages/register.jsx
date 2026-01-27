@@ -1,25 +1,66 @@
-import { Link } from "react-router-dom";
-import "./register.css"
+import React, { useState } from "react";
+import axios from "axios";
+import RegisterItem from "../components/RegisterItem";
+import { useNavigate } from "react-router-dom";
 
-function Register() {
-  return (
-    <div className="register-container">
-    <div className="card">
-      <h1>Create an account</h1>
+export default function Register() {
+  const navigate = useNavigate();
+	const [formData, setFormData] = useState({
+    username: "",
+		password: "",
+		email: "",
+	});
 
-      <input className="input" placeholder="Create username" />
-      <input className="input" type="password" placeholder="Create password" />
+	const handleChange = (e) => {
+		setFormData({
+			...formData,
+			[e.target.name]: e.target.value,
+		});
+	};
+  const [successMessage, setSuccessMessage] = useState(null)
+	const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null)
+	
+    const handleSubmit = async (e) => {
+		e.preventDefault();
+        if(isLoading){
+            return
+        }
 
-      <button className="button">Sign up</button>
+        setIsLoading(true);
+        setError(null);
+        try{
+            const response = await axios.post("http://127.0.0.1:8000/auth/register/", formData)
+            console.log("Success!", response.data)
+            setSuccessMessage("Registration successful!");
+            setTimeout(() => navigate("/"), 1000);
+        }
+        catch(error){
+            console.log("Error during registration!", error.response?.data);
+            if(error.response && error.response.data){
+                Object.keys(error.response.data).forEach(field => {
+                    const errorMessages = error.response.data[field];
+                    if(errorMessages && errorMessages.length > 0){
+                        setError(errorMessages[0]);
+                    }
+                })
+            }
+        }
+        finally{
+            setIsLoading(false)
+        }
 
-    
-      <p className="switch">
-        Already have an account?{" "}
-        <Link to="/">Log in</Link>
-      </p>
-    </div>
- </div>
-  );
+	};
+	return (
+		<div>
+      <RegisterItem
+        formData={formData}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        isLoading={isLoading}
+        error={error}
+        successMessage={successMessage}
+      />
+		</div>
+	);
 }
-
-export default Register;

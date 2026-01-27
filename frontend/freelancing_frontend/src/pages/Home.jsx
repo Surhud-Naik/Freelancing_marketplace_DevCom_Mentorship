@@ -1,76 +1,62 @@
-import React from 'react'
-import {useState,useEffect} from 'react'
-import axios from "axios"
-import { Link } from "react-router-dom";
-import Sidebar from '../components/Sidebar.jsx';
-import Maincontent from '../components/Maincontent.jsx';
-import "./home.css"
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Sidebar from "../components/Sidebar";
+import Maincontent from "../components/Maincontent";
+import { useNavigate } from "react-router-dom";
+import "./home.css";
 
 export default function Home() {
-  const [username, setUsername]=useState("")
-  const [isLoggedIn , setLoggedIn] =useState(false)
-useEffect (()=>{
-  const checkLoggedInUser = async () =>{
-    try{
-      const token = localStorage.getItem("accessToken");
-      if(token){
-        const config ={
-          headers: {
-            "Authorization": `Bearer ${token}`
+  const [username, setUsername] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const token = localStorage.getItem("accessToken");
+        const response = await axios.get(
+          "http://127.0.0.1:8000/auth/user/",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           }
-        };
-        const response = await axios.get("http://127.0.0.1:8000/api/user/", config)
-        setLoggedIn(true)
-        setUsername(response.data.username)
+        );
+        setUsername(response.data.username);
+      } catch (error) {
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+        navigate("/", { replace: true });
       }
-      else{setLoggedIn(false);
-          setUsername("");
-         }
-    }
-    catch(error){
-      setLoggedIn(false);
-      setUsername("");
+    };
 
-    }
-  };
-  checkLoggedInUser()
-},[])
+    fetchUser();
+  }, [navigate]);
 
-
-const handleLogout = async () => {
-    try{
+  const handleLogout = async () => {
+    try {
       const accessToken = localStorage.getItem("accessToken");
       const refreshToken = localStorage.getItem("refreshToken");
 
-      if(accessToken && refreshToken) {
-        const config = {
+      await axios.post(
+        "http://127.0.0.1:8000/auth/logout/",
+        { refresh: refreshToken },
+        {
           headers: {
-            "Authorization":`Bearer ${accessToken}`
-          }
-        };
-        await axios.post("http://127.0.0.1:8000/api/logout/", {"refresh":refreshToken}, config)
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("refreshToken");
-        setLoggedIn(false);
-        setUsername("");
-        console.log("Log out successful!")
-      }
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+    } finally {
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
+      navigate("/", { replace: true });
     }
-    catch(error){
-      console.error("Failed to logout", error.response?.data || error.message)
-    }
-  }
-  return (
-    <div className = "container">
-      {isLoggedIn? (
-        <>
-          <div><Sidebar onLogout = {handleLogout}/></div>
-          <div><Maincontent/></div>
-        </>
-      ): (
-          <Link to="/">Please Login</Link>
-      )}
+  };
 
+  return (
+    <div className="container">
+      <Sidebar onLogout={handleLogout} />
+      <Maincontent username={username} />
     </div>
-  )
+  );
 }

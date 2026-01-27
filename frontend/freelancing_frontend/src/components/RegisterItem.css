@@ -1,0 +1,58 @@
+.register-container {
+    background-image: url("/back.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 50px
+}
+.card {
+    background: #f7ffff;
+    width: 90%;
+    max-width: 380px;
+    padding: 32px 24px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+.input {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #b7dada;
+  padding: 12px 0;
+  margin-bottom: 24px;
+  font-size: 16px;
+  background: transparent;
+  outline: none;
+}
+
+.switch {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.switch a {
+  color: #4bbdb7;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.button{
+    width: 100%;
+    padding: 14px;
+    background: #c9f3f1;
+    border: none;
+    border-radius: 999px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #184f4b;
+    cursor: pointer;
+}
+
+.switch a:hover{
+  text-decoration:underline;
+}

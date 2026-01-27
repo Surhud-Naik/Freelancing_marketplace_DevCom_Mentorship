@@ -1,4 +1,4 @@
-export default function Header() {
+export default function Header({username}) {
   return (
     <div>
         <div>
@@ -14,7 +14,7 @@ export default function Header() {
               <button className = "hire-freelance-btn">Freelance</button>
             </div>
 
-            <div className = "greeting">Hii Username!</div>
+            <div className = "greeting">Hii {username}!</div>
           </div>
         </div>
     </div>
