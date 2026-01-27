@@ -158,3 +158,10 @@ input::placeholder{
     height: 100vh;
     width: 20%;
 }
+.logoutBtn {
+  margin-top: auto;
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+}

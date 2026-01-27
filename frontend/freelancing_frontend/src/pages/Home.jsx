@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState,useEffect} from 'react'
 import axios from "axios"
+import { Link } from "react-router-dom";
 import Sidebar from '../components/Sidebar.jsx';
 import Maincontent from '../components/Maincontent.jsx';
 import "./home.css"
@@ -18,15 +19,11 @@ useEffect (()=>{
             "Authorization": `Bearer ${token}`
           }
         };
-const response = await axios.get(
-  "http://127.0.0.1:8000/api/profile/",
-  config
-);
-
-       setLoggedIn(true)
-      setUsername(response.data.username)
-         }
-         else{setLoggedIn(false);
+        const response = await axios.get("http://127.0.0.1:8000/api/user/", config)
+        setLoggedIn(true)
+        setUsername(response.data.username)
+      }
+      else{setLoggedIn(false);
           setUsername("");
          }
     }
@@ -38,26 +35,42 @@ const response = await axios.get(
   };
   checkLoggedInUser()
 },[])
-const handleLogout = async () => {
-  try {
-const refreshToken = localStorage.getItem("refreshaccessToken");
-if(refreshToken){
-  await axios.post("http://127.0.0.1:8000/api/logout/",{"refresh": refreshToken})
-  localStorage.removeItem("accessToken");
-  localStorage.removeItem("refreshToken");
-  setLoggedIn(false);
-  setUsername("")
-}
-  }
-  catch(error){
-    console.log("Failed to logout!")
 
+
+const handleLogout = async () => {
+    try{
+      const accessToken = localStorage.getItem("accessToken");
+      const refreshToken = localStorage.getItem("refreshToken");
+
+      if(accessToken && refreshToken) {
+        const config = {
+          headers: {
+            "Authorization":`Bearer ${accessToken}`
+          }
+        };
+        await axios.post("http://127.0.0.1:8000/api/logout/", {"refresh":refreshToken}, config)
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+        setLoggedIn(false);
+        setUsername("");
+        console.log("Log out successful!")
+      }
+    }
+    catch(error){
+      console.error("Failed to logout", error.response?.data || error.message)
+    }
   }
-}
   return (
     <div className = "container">
-      <div><Sidebar/></div>
-      <div><Maincontent/></div>
+      {isLoggedIn? (
+        <>
+          <div><Sidebar onLogout = {handleLogout}/></div>
+          <div><Maincontent/></div>
+        </>
+      ): (
+          <Link to="/">Please Login</Link>
+      )}
+
     </div>
   )
 }

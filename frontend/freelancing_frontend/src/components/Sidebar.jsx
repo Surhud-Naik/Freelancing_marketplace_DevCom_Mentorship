@@ -6,7 +6,7 @@ import search_icon from '../icons/search_icon.svg'
 import user_profile from '../icons/user_profile.svg'
 import menu_icon from '../icons/menu_icon.svg'
 
-export default function Sidebar() {
+export default function Sidebar({handleLogout}) {
   return (
     <div className='sideBar'>
       <img className = "Icons"  src = {logo} alt="logo"></img>
@@ -16,6 +16,10 @@ export default function Sidebar() {
       <img className = "Icons" src = {notification_icon} alt="notification_icon"></img>
       <img className = "Icons" src = {like_icon} alt="like_icon"></img>
       <img className = "Icons" src = {chat_box} alt="chat-box"></img>
+
+      <button className="logoutBtn" onClick={handleLogout}>
+        Logout
+      </button>
     </div>
   )
 }
