@@ -2,7 +2,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
-from .serializers import ServiceSerializer, ReviewSerializer, NotificationSerializer
+from .serializers import ServiceSerializer, ReviewSerializer, NotificationSerializer, TransactionSerializer
 from django.shortcuts import get_object_or_404, redirect
 from django.core.exceptions import PermissionDenied
 from .models import Service, Review, Notification
@@ -49,3 +49,10 @@ def buy_service(request, service_id):
         recipient=service.sellerID,
         message=f"Your service '{service.Name}' has been purchased by {request.user.username}.")
     return redirect('success_url')
+class TransactionCreateAPIView(APIView):
+    def post(self, request):
+        serializer = TransactionSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

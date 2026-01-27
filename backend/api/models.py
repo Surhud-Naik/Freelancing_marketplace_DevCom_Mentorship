@@ -1,5 +1,17 @@
 from django.db import models
 from django.conf import settings
+class transaction(models.Model):
+    transactionID=models.IntegerField()
+    buyer=models.CharField(max_length=50)
+    seller=models.CharField(max_length=50)
+    service=models.CharField(max_length=100)
+    price=models.IntegerField()
+    status=models.CharField(max_length=20, default="in progress")
+    time=models.CharField(max_length=50)
+    deliverables=models.CharField(max_length=50, default="null")
+    def __str__(self):
+        return self.transactionID
+    
 class Service(models.Model):
     sellerID=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,default="")
     Name=models.CharField(max_length=100)
