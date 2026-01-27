@@ -7,7 +7,8 @@ export default function Register() {
   const navigate = useNavigate();
 	const [formData, setFormData] = useState({
     username: "",
-		password: "",
+		password1: "",
+    password2:"",
 		email: "",
 	});
 
@@ -25,6 +26,10 @@ export default function Register() {
 		e.preventDefault();
         if(isLoading){
             return
+        }
+        if (formData.password1 !== formData.password2) {
+          setError("Passwords do not match!");
+          return;
         }
 
         setIsLoading(true);

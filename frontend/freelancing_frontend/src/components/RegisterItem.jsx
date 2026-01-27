@@ -14,13 +14,13 @@ export default function RegisterItem({
     <div className="card">
       <h1>Register</h1>
         {error && <p className="text-red-500 mb-4">{error}</p>}
-        { successMessage && <p style={{color:"green"}}>{successMessage}</p>}
+        {successMessage && <p style={{color:"green"}}>{successMessage}</p>}
     <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <input
-            type="username"
+            type="text"
             name="username"
             placeholder="Create Username"
-            value={formData.email}
+            value={formData.username}
             onChange={handleChange}
             required
             className="input"
@@ -37,9 +37,18 @@ export default function RegisterItem({
 
           <input
             type="password"
-            name="password"
+            name="password1"
             placeholder="Create Password"
-            value={formData.password}
+            value={formData.password1}
+            onChange={handleChange}
+            required
+            className="input"
+          />
+          <input
+            type="password"
+            name="password2"
+            placeholder="Confirm Password"
+            value={formData.password2}
             onChange={handleChange}
             required
             className="input"

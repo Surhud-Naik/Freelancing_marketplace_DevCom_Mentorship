@@ -6,12 +6,27 @@ class CustomUserSerializer(serializers.ModelSerializer):
         model = CustomUser
         fields = ("id","username","email")
 class UserRegistrationSerializer(serializers.ModelSerializer):
-    password1=serializers.CharField(write_only=True)
-    password2=serializers.CharField(write_only=True)
+    password1 = serializers.CharField(write_only=True)
+    password2 = serializers.CharField(write_only=True)
+
     class Meta:
-        model=CustomUser
-        fields = ("id","username","email","password1","password2")
-        extra_kwargs={"password":{"write_only":True}}
+        model = CustomUser
+        fields = ("id", "username", "email", "password1", "password2")
+
+    def validate(self, attrs):
+        if attrs['password1'] != attrs['password2']:
+            raise serializers.ValidationError("Passwords do not match!")
+        if len(attrs['password1']) < 8:
+            raise serializers.ValidationError("Password must be at least 8 characters!")
+        return attrs
+
+    def create(self, validated_data):
+        # Remove password2 and use password1
+        password = validated_data.pop('password1')
+        validated_data.pop('password2')
+        # Use create_user to hash password
+        user = CustomUser.objects.create_user(password=password, **validated_data)
+        return user
 def validate(self,attrs):
     if(attrs['password1']!=attrs['password2']):
         raise serializers.ValidationError("Password do not match!")

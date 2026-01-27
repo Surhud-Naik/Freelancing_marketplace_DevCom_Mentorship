@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap');
+
 *{
 
     box-sizing: border-box;
@@ -8,7 +10,9 @@
 .container{
     display:flex;
     height: 100vh;
-    width: 100vw; /* instead of 90% */
+    width: 100%; /* instead of 90% */
+    padding: 1.875rem;
+    gap: 1.5rem; /* clean spacing */
 }
 img{
     width: 40px;
@@ -145,8 +149,8 @@ input::placeholder{
 
 .mainContent {
     flex: 1;
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
 }
 
 /* Sidebar */
@@ -154,12 +158,12 @@ input::placeholder{
     display: flex;
     flex-direction: column;
     gap: 30px;
-    margin: 1.875rem;
     height: 100vh;
-    width: 20%;
+    width: 90px;
+    margin: 0; 
 }
 .logoutBtn {
-  margin-top: auto;
+  margin-top: 0;
   background: none;
   border: none;
   color: red;
