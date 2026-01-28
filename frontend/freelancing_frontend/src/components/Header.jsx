@@ -1,4 +1,17 @@
-export default function Header({username}) {
+import React from 'react'
+import { useState } from 'react';
+export default function Header({username, active,setActive,hireOrFreeLance,setHireOrFreeLance,phase,setPhase}) {
+
+  
+  function hireBtnHandler(){
+    setHireOrFreeLance(true);
+    setPhase(1);
+    setActive(0);
+  }
+  function freeLanceBtnHandler(){
+    setHireOrFreeLance(false)
+    setActive(1);
+  }
   return (
     <div>
         <div>
@@ -10,15 +23,14 @@ export default function Header({username}) {
 
           <div className = "right-section">
             <div className = "hire-freelance-btn-container">
-              <button className = "hire-freelance-btn">Hire</button>
-              <button className = "hire-freelance-btn">Freelance</button>
+              <button onClick = {hireBtnHandler} className = {active ? "hire-btn hire-freelance-btn" : "updated-btn-props  hire-freelance-btn hire-btn"}>Hire</button>
+              <button onClick = {freeLanceBtnHandler} className = {active ? "updated-btn-props  hire-freelance-btn freelance-btn" : "hire-freelance-btn freelance-btn"}>Freelance</button>
             </div>
 
             <div className = "greeting">Hii {username}!</div>
           </div>
         </div>
     </div>
-
     </div>
   )
 }

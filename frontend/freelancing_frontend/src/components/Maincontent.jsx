@@ -8,7 +8,7 @@ import Form_phase2 from './Form_phase2'
 import Form_phase3 from './Form_phase3'
 import "./Form_phases.css"
 
-export default function Maincontent() {
+export default function Maincontent({username}) {
   const[active,setActive] = useState(0);
   
   const [hireOrFreeLance,setHireOrFreeLance] = useState(true)
@@ -41,7 +41,7 @@ export default function Maincontent() {
     }
 
   if(phase == 1){
-    content = <div> <HeroSection></HeroSection> <Form_phase1 changeHandler = {changeHandler} formsData = {formsData} setFormsData = {setFormsData} phase = {phase} setPhase = {setPhase}></Form_phase1></div>;
+    content = <div><Form_phase1 changeHandler = {changeHandler} formsData = {formsData} setFormsData = {setFormsData} phase = {phase} setPhase = {setPhase}></Form_phase1></div>;
   }
   else if(phase == 2){
     content = <div><Form_phase2 changeHandler = {changeHandler} formsData = {formsData} setFormsData = {setFormsData} phase = {phase} setPhase = {setPhase}></Form_phase2></div>;
@@ -57,7 +57,11 @@ export default function Maincontent() {
       setActive = {setActive} 
       hireOrFreeLance={hireOrFreeLance} 
       setHireOrFreeLance = {setHireOrFreeLance} 
-      phase = {phase} setPhase = {setPhase}/>
+      phase = {phase} 
+      setPhase = {setPhase}
+      username = {username}
+      />
+      {!hireOrFreeLance && <HeroSection />}
 
       {hireOrFreeLance ? 
       <div> <Searchtool/> <Hotpicks/> </div>
