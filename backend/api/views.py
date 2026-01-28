@@ -5,7 +5,7 @@ from rest_framework import status
 from .serializers import ServiceSerializer, ReviewSerializer, NotificationSerializer, TransactionSerializer
 from django.shortcuts import get_object_or_404, redirect
 from django.core.exceptions import PermissionDenied
-from .models import Service, Review, Notification
+from .models import Service, Review, Notification, transaction
 class ServiceCreateAPIView(APIView):
     def post(self, request):
         serializer = ServiceSerializer(data=request.data)
@@ -56,3 +56,6 @@ class TransactionCreateAPIView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class TransactionGetView(APIView):
+    def get(self, request):
+        return Response([{"status": n.status} for n in transaction.objects.filter(user=request.user)])

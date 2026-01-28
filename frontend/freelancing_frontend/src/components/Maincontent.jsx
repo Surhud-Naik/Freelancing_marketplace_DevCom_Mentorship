@@ -1,6 +1,6 @@
 import Header from './Header'
 import Searchtool from './Searchtool'
-import Hotpicks from './Hotpicks'
+import Services from './Services'
 import { useState } from 'react'
 import HeroSection from './HeroSection'
 import Form_phase1 from './Form_phase1'
@@ -63,7 +63,7 @@ export default function Maincontent({username}) {
       />
 
       {hireOrFreeLance ? 
-      <div> <Searchtool/> <Hotpicks/> </div>
+      <div> <Searchtool/> <Services/> </div>
       :  content
       }
     </div>
