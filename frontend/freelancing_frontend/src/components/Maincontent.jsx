@@ -41,7 +41,7 @@ export default function Maincontent({username}) {
     }
 
   if(phase == 1){
-    content = <div><Form_phase1 changeHandler = {changeHandler} formsData = {formsData} setFormsData = {setFormsData} phase = {phase} setPhase = {setPhase}></Form_phase1></div>;
+    content = <div> <HeroSection></HeroSection> <Form_phase1 changeHandler = {changeHandler} formsData = {formsData} setFormsData = {setFormsData} phase = {phase} setPhase = {setPhase}></Form_phase1></div>;
   }
   else if(phase == 2){
     content = <div><Form_phase2 changeHandler = {changeHandler} formsData = {formsData} setFormsData = {setFormsData} phase = {phase} setPhase = {setPhase}></Form_phase2></div>;
@@ -61,7 +61,6 @@ export default function Maincontent({username}) {
       setPhase = {setPhase}
       username = {username}
       />
-      {!hireOrFreeLance && <HeroSection />}
 
       {hireOrFreeLance ? 
       <div> <Searchtool/> <Hotpicks/> </div>

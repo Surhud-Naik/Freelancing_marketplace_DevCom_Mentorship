@@ -148,9 +148,7 @@ input::placeholder{
 /* Main content */
 
 .mainContent {
-    flex: 1;
-    /* margin-left: auto;
-    margin-right: auto; */
+    width: 1276px;
 }
 
 /* Sidebar */
