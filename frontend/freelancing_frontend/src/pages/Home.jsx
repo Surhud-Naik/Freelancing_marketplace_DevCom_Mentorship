@@ -5,6 +5,7 @@ import Maincontent from "../components/Maincontent";
 import { useNavigate } from "react-router-dom";
 import "./home.css";
 
+
 export default function Home() {
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
