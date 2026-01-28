@@ -13,18 +13,20 @@ class transaction(models.Model):
         return self.transactionID
     
 class Service(models.Model):
+    serviceID=models.AutoField(primary_key=True)
+    Profile_image=models.ImageField(upload_to='services_profiles/', null=True, blank=True)
     sellerID=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,default="")
     Name=models.CharField(max_length=100)
+    Service_Name=models.CharField(max_length=100)
+    email=models.CharField(max_length=100)
     Phone_number=models.IntegerField()
     Qualification=models.CharField(max_length=100)
     Description=models.CharField(max_length=500)
     Youtube_link=models.CharField(max_length=200)
-    Price=models.IntegerField()
-    Sell_state=models.BooleanField(default=False)
     Buyer_ID=models.JSONField(null=True, blank=True)
     No_Of_Buyers=models.IntegerField(default=0,blank=True)
     def __str__(self):
-        return self.Name
+        return self.Service_Name
 class Review(models.Model):
     serviceID=models.ForeignKey(Service, on_delete=models.CASCADE)
     BuyerID=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

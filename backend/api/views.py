@@ -35,20 +35,18 @@ def submit_review(request,service_id):
             review=request.POST.get('review')
         )
         return redirect('success_url')
-@api_view(['POST'])    
-def buy_service(request, service_id):
-    service = get_object_or_404(Service, id=service_id)
-    if service.sellerID == request.user.id:
-        raise PermissionDenied("You cannot buy your own service.")
-    if not service.Sell_state:
-        service.Sell_state = True
-    service.No_Of_Buyers += 1
-    service.Buyer_ID.append(request.user.id)
-    service.save()
-    Notification.objects.create(
-        recipient=service.sellerID,
-        message=f"Your service '{service.Name}' has been purchased by {request.user.username}.")
-    return redirect('success_url')
+# @api_view(['POST'])    
+# def buy_service(request, service_id):
+#     service = get_object_or_404(Service, id=service_id)
+#     if service.sellerID == request.user.id:
+#         raise PermissionDenied("You cannot buy your own service.")
+#     service.No_Of_Buyers += 1
+#     service.Buyer_ID.append(request.user.id)
+#     service.save()
+#     Notification.objects.create(
+#         recipient=service.sellerID,
+#         message=f"Your service '{service.Name}' has been purchased by {request.user.username}.")
+#     return redirect('success_url')
 class TransactionCreateAPIView(APIView):
     def post(self, request):
         serializer = TransactionSerializer(data=request.data)
@@ -59,3 +57,13 @@ class TransactionCreateAPIView(APIView):
 class TransactionGetView(APIView):
     def get(self, request):
         return Response([{"status": n.status} for n in transaction.objects.filter(user=request.user)])
+class ServiceListView(APIView):
+    def get(self, request):
+        services = Service.objects.all()
+        serializer = ServiceSerializer(services, many=True)
+        return Response(serializer.data)
+class ReviewListView(APIView):
+    def get(self, request):
+        reviews = Review.objects.all()
+        serializer = ReviewSerializer(reviews, many=True)
+        return Response(serializer.data)
