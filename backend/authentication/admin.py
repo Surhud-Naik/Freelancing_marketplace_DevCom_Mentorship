@@ -1,8 +1,9 @@
 from django.contrib import admin
-# Register your models here.
 from .models import CustomUser
-from .forms import CreateCustomUserForm,CustomUserChangeForm
+from .forms import CreateCustomUserForm, CustomUserChangeForm
 from django.contrib.auth.admin import UserAdmin
+
 @admin.register(CustomUser)
-class CustomUserAdmin(admin.ModelAdmin):
-    pass
+class CustomUserAdmin(UserAdmin):
+    list_display = ('email', 'username', 'first_name', 'last_name', 'is_staff', 'is_active', 'date_joined')
+    fieldsets = UserAdmin.fieldsets
