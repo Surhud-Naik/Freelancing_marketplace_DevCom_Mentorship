@@ -6,7 +6,6 @@ export default function Form_phase1({changeHandler,formsData,setFormsData,phase,
     function clickNextHandler(){
         console.log(formsData);
         setPhase(prev => prev + 1);
-       
     }
   return (
     <div>
@@ -17,13 +16,13 @@ export default function Form_phase1({changeHandler,formsData,setFormsData,phase,
 
             <div className = "personal-info-form">
                 <div className="personal-info">
-                    <input name = "Name" onChange = {changeHandler} className = "form-btn" placeholder='Enter Name'></input> <br></br>
-                    <input name = "Email_id" onChange = {changeHandler} className = "form-btn" placeholder='Email id'></input>
+                    <input value = {formsData.Name} name = "Name" onChange = {changeHandler} className = "form-btn" placeholder='Enter Name'></input> <br></br>
+                    <input value = {formsData.email} name = "email" onChange = {changeHandler} className = "form-btn" placeholder='Email id'></input>
 
                     <div className = "contact_number_form">
                         
                         <div className = "contact-nb-label"><label htmlFor = "contact-nb"  >+91</label></div>
-                        <input id = "contact-nb" name = "Contact_Number" onChange = {changeHandler} className = "form-btn contactNumber" placeholder="Contact Number"></input>
+                        <input value = {formsData.Phone_number}id = "contact-nb" name = "Phone_number" onChange = {changeHandler} className = "form-btn contactNumber" placeholder="Contact Number"></input>
                     </div>
                 </div>
                 <div className="image-add">

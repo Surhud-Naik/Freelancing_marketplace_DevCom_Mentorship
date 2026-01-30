@@ -4,6 +4,7 @@
     height: 50px;
 
 }
+
 .next-btn{
     height: 63px;
     width: 141px;
@@ -30,6 +31,7 @@
 
     position: relative;
 }
+
 .rate-card{
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -41,9 +43,21 @@
     border: none;
     width: 132px;
     height: 75px;
-    
+}
+.desc-inp-field{
+
+    height:160px;
+    width: 710px;
+    background-color: #e7d7ff;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    border: none;
+    box-shadow: inset 0px 4px 4px 0px rgba(0,0,0,0.25);
+
 
 }
+
 .charge-text{
     font-size: 35px;
     margin-left: 10px;
@@ -167,3 +181,6 @@
     margin-left: 1.875rem;
 
 }
+
+
+
