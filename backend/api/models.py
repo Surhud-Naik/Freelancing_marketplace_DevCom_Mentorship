@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+
 class transaction(models.Model):
     transactionID=models.IntegerField()
     buyer=models.CharField(max_length=50)
@@ -15,7 +16,7 @@ class transaction(models.Model):
 class Service(models.Model):
     serviceID=models.AutoField(primary_key=True)
     Profile_image=models.ImageField(upload_to='services_profiles/', null=True, blank=True)
-    sellerID=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,default="")
+    sellerID=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     Name=models.CharField(max_length=100)
     Service_Name=models.CharField(max_length=100, null=True, blank=True)
     email=models.CharField(max_length=100, null=True, blank=True)
