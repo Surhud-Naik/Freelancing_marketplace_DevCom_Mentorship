@@ -24,10 +24,10 @@
         { 
           Name: "",
           email : "",
-          Phone_number: "",
+          Phone_number: 0,
           Service_Name : "",
           Qualification : "",
-          Price : "",
+          Price : 0,
           Youtube_link: "",
           Description: ""
         }
@@ -56,7 +56,13 @@
           });
         
           try{
-            const response = await axios.post("http://127.0.0.1:8000/api/services/",formData);
+            const response = await axios.post("http://127.0.0.1:8000/api/services/",formData,
+                {
+              headers: {
+                Authorization: `Bearer ${token}`
+              }
+  }
+            );
             console.log(response.data);
 
           }
