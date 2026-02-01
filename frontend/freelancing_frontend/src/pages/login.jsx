@@ -6,8 +6,9 @@ import LoginItem from "../components/LoginItem";
 export default function Login() {
 
   if (localStorage.getItem("accessToken")) {
-    return <Navigate to="/home" replace />;
+   return <Navigate to="/home" replace />;
   }
+  
 
   const navigate = useNavigate();
 
@@ -73,4 +74,5 @@ export default function Login() {
       />
     </>
   );
+
 }

@@ -1,0 +1,38 @@
+.servcard {
+  display: block;
+  width: 240px;
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: 0.25s;
+}
+
+.servcard:hover {
+  transform: translateY(-6px);
+}
+
+.servimg {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.servbody {
+  padding: 14px;
+}
+
+.servtit {
+  font-size: 14px;
+  color: #555;
+  margin: 6px 0;
+}
+
+.moredetser {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-top: 10px;
+}

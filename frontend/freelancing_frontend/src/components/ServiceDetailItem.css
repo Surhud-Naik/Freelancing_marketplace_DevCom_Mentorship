@@ -1,0 +1,54 @@
+.detcontainer {
+  background: #f6f3ff;
+  padding: 30px;
+  border-radius: 16px;
+    
+}
+
+.dethead {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.detimg {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.detinfo {
+  flex: 1;
+}
+
+
+
+.detail-price {
+  font-weight: bold;
+}
+
+.message-btn {
+  background: #3cc7c2;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.detail-section {
+  margin-top: 25px;
+}
+
+.skills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.skill {
+  background: #e4dcff;
+  padding: 8px 14px;
+  border-radius: 20px;
+}

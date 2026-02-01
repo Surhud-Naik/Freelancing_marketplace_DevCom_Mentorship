@@ -2,7 +2,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/login";
 import Register from "./pages/register";
-import ProtectedRoute from './components/ProtectedRoute.jsx'
+import ServiceDetail from "./pages/ServiceDetail";
+
+
+
 
 export default function App() {
   return (
@@ -13,14 +16,19 @@ export default function App() {
         <Route path="/" element={<Login />} />
 
 
-        <Route element={<ProtectedRoute />}>
+        
           <Route path="/home" element={<Home />} />
-        </Route>
+        
 
         <Route path="/register" element={<Register />} />
-
+            
+        <Route path="/service/:id" element={<ServiceDetail />} />
+        
       </Routes>
     </BrowserRouter>
-  );
-}
+  );}
+
+
+    
+   
 
