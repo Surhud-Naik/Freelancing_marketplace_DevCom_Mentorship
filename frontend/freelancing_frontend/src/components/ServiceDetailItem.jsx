@@ -14,7 +14,7 @@ const ServiceDetailItem = ({ service }) => {
           <p>{service.title}</p>
 
           
-          <p className="detail-price">${service.price}/hr</p>
+          <p className="detail-price">${service.price}</p>
 
           <p>Email: {service.email}</p>
           <p>Phone: {service.phone}</p>
@@ -34,7 +34,20 @@ const ServiceDetailItem = ({ service }) => {
       </div>
 
       <div className="detail-section">
-        <p>{service.description}</p>
+        <h3><b>Description</b></h3>
+      <p>{service.description}</p>
+      <br></br>
+      </div>
+      
+      
+      <div className="links">
+        <h3>
+          <b>
+            Youtube Link
+          </b>
+        </h3>
+        <a href="yt;llink">CHECK IT OUT ON YT</a>
+
       </div>
 
     </div>

@@ -39,16 +39,12 @@
 
 .detail-section {
   margin-top: 25px;
+  font-weight: 400;
 }
 
 .skills {
   display: flex;
   gap: 10px;
-  flex-wrap: wrap;
 }
 
-.skill {
-  background: #e4dcff;
-  padding: 8px 14px;
-  border-radius: 20px;
-}
+
