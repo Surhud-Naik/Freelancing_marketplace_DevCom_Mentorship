@@ -4,7 +4,7 @@ from .models import Service, Review, Notification, transaction
 class ServiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Service
-        fields = '__all__'
+        exclude = ['sellerID']
 class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review

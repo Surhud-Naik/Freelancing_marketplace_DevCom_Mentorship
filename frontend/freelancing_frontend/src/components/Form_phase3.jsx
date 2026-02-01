@@ -43,7 +43,7 @@ function prevClickHandler() {
         
         <div className='rate-info-card'>
             <div className='rate-card-field'>
-                <input value = {formsData.Price} name = "Price" onChange = {changeHandler} className = "charge"></input>
+                <input type = "number" value = {formsData.Price} name = "Price" onChange = {changeHandler} className = "charge"></input>
                 <img className = "dollar_sign_pos"src = {dollar_sign}></img>
             </div>
             <label className = "charge-text" htmlFor = "charge">Charge </label>
@@ -57,7 +57,6 @@ function prevClickHandler() {
         <div>
             <button  onClick = {prevClickHandler} className = "next-btn">Prev</button>
             <button  onClick = {submitClickHandler} className = "next-btn">Submit</button>
-           
         </div>  
     </div>
   )

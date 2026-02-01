@@ -9,10 +9,9 @@ from .models import Service, Review, Notification, transaction
 class ServiceCreateAPIView(APIView):
     def post(self, request):
         serializer = ServiceSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        serializer.is_valid(raise_exception=True)
+        serializer.save(sellerID=request.user)
+        return Response(serializer.data, status=201)
 class ReviewCreateAPIView(APIView):
     def post(self, request):
         serializer = ReviewSerializer(data=request.data)
