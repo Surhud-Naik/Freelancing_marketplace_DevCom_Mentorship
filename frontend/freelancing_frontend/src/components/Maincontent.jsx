@@ -87,6 +87,8 @@ async function submitClickHandler() {
     window.alert("Form could not be submitted");
   }
 }
+console.log("Fetched services:", res.data);
+
 
     
   if(phase == 1){
@@ -113,11 +115,11 @@ async function submitClickHandler() {
       />
 
       {hireOrFreeLance ? 
-      <div> <Searchtool/> <Services/> </div>
+      <div> <Searchtool/> <Services services={items} />
+  </div>
       :  content
       }
     </div>
   )  
-
 }
 
