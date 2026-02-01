@@ -19,6 +19,7 @@ body {
     );
 }
 
+
 /* Global utility (optional) */
 img {
     width: 40px;
@@ -34,4 +35,70 @@ h1 {
 
 input::placeholder {
     color: #a9cfcf;
+}
+
+
+.hire-freelance-btn{
+
+    border-radius: 10px;
+    width: 150px;
+    height: 45px;
+    border:none;
+    margin-bottom: 20px;
+    background-color:#E7D7FF;
+    color: #724AB1;
+;
+
+}
+.hire-btn{
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+}
+.updated-btn-props{
+    background-color: #C8A5FF;
+    color: #2B0055;
+
+
+}
+.freelance-btn{
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+button{
+    cursor: pointer;
+}
+.heading-text{
+
+
+    font-weight: 700;
+    color: #FFFFFF;
+    font-size: 60px;
+    font-style: bold;
+    margin-left: 1.875rem;
+}
+input{
+    font-size: 25px;
+    padding-left: 20px;
+}
+
+.input-field{
+
+    border-radius: 55px;
+    padding: 18px 15px 18px 15px;
+    height: 79px;
+    width: fill;
+    font-size: 30px;
+    padding-left: 65px;
+    font-family: 'Istok Web', sans-serif;;
+    
+
+}
+
+.searchTool{
+
+    padding-left: 30px;
+    padding-right: 30px;
+
 }

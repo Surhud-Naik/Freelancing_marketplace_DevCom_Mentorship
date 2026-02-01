@@ -7,6 +7,8 @@ import Form_phase1 from './Form_phase1'
 import Form_phase2 from './Form_phase2'
 import Form_phase3 from './Form_phase3'
 import "./Form_phases.css"
+import "../index.css"
+import axios from "axios"
 
 
 export default function Maincontent({username}) {
@@ -21,16 +23,18 @@ export default function Maincontent({username}) {
   const [formsData,setFormsData] = useState(
        { 
         Name: "",
-        Email_id : "",
-        Contact_Number: "",
-        profile_image : "",
-        expertise : "",
-        proff_background : "",
-        charges : "",
-        personal_works: ""
+        email : "",
+        Phone_number: "",
+        Profile_image : "",
+        Service_Name : "",
+        Qualification : "",
+        Price : "",
+        Youtube_link: "",
+        Description: ""
        }
     );
 
+      
       function changeHandler(e){
 
         setFormsData(
@@ -41,6 +45,23 @@ export default function Maincontent({username}) {
         );
     }
 
+    async function submitClickHandler(){
+
+        setPhase(prev => prev + 1);
+        setActive(0);
+
+        try{
+          const response = await axios.post("http://127.0.0.1:8000/api/services/",formsData);
+          console.log(response.data);
+
+        }
+        catch(error){
+          window.alert("Form could not be submitted")
+
+        }
+    }
+
+
   if(phase == 1){
     content = <div> <HeroSection></HeroSection> <Form_phase1 changeHandler = {changeHandler} formsData = {formsData} setFormsData = {setFormsData} phase = {phase} setPhase = {setPhase}></Form_phase1></div>;
   }
@@ -48,9 +69,10 @@ export default function Maincontent({username}) {
     content = <div><Form_phase2 changeHandler = {changeHandler} formsData = {formsData} setFormsData = {setFormsData} phase = {phase} setPhase = {setPhase}></Form_phase2></div>;
   }
   else if(phase == 3){
-    content = <div><Form_phase3 active = {active} setActive = {setActive} changeHandler = {changeHandler} formsData = {formsData} setFormsData = {setFormsData} phase = {phase} setPhase = {setPhase}></Form_phase3></div>
+    content = <div><Form_phase3 submitClickHandler = {submitClickHandler} active = {active} setActive = {setActive} changeHandler = {changeHandler} formsData = {formsData} setFormsData = {setFormsData} phase = {phase} setPhase = {setPhase}></Form_phase3></div>
   }
   
+  console.log(formsData);
   return (
     <div  className = "mainContent" >
       <Header 

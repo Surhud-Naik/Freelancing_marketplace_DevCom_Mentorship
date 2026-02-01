@@ -3,12 +3,9 @@ import progress_bar from '../icons/progress_bars3.png'
 import dollar_sign from '../icons/dollar_sign.png'
 
 
-export default function Form_phase3({active,setActive,changeHandler,formsData,setFormsData,phase,setPhase}) {
+export default function Form_phase3({active,setActive,changeHandler,formsData,setFormsData,phase,setPhase,submitClickHandler}) {
 
-    function nextClickHandler() {
-  setPhase(prev => prev + 1);
-  setActive(0);
-}
+
 
 function prevClickHandler() {
   setPhase(prev => prev - 1);
@@ -21,19 +18,32 @@ function prevClickHandler() {
 
         <div className="form-subHeading">Tell Us About Your Work</div>  
 
-        <div className='service-text'>Showcase Your Work!!</div>
+        <div className="proff-background">
+            <div>
+                <div className='service-text'>Showcase Your Work!!</div>
 
-        <div className = "skills-yt-link">
-           <input name = "personal_works" onChange = {changeHandler} className = "form-btn" type = 'url' placeholder='Enter youtube link'></input>
+                <div className = "skills-yt-link">
+                <input value = {formsData.Youtube_link} name = "Youtube_link" onChange = {changeHandler} className = "form-btn" type = 'url' placeholder='Enter youtube link'></input>
+                </div>
+            </div>
+
+            <div>
+                <div className='service-text'>Provide Your Description</div>
+                <input value = {formsData.Description} name = "Description" onChange={changeHandler} type = "text" className = "desc-inp-field" placeholder= 'Enter your description' ></input>
+                
+            </div>
         </div>
 
+
+        
+        
         <div className='rate-card'>
             <b>Rate Card</b>
         </div>
         
         <div className='rate-info-card'>
             <div className='rate-card-field'>
-                <input name = "charges"onChange = {changeHandler} className = "charge"></input>
+                <input value = {formsData.Price} name = "Price" onChange = {changeHandler} className = "charge"></input>
                 <img className = "dollar_sign_pos"src = {dollar_sign}></img>
             </div>
             <label className = "charge-text" htmlFor = "charge">Charge </label>
@@ -46,7 +56,7 @@ function prevClickHandler() {
         
         <div>
             <button  onClick = {prevClickHandler} className = "next-btn">Prev</button>
-            <button  onClick = {nextClickHandler} className = "next-btn">Submit</button>
+            <button  onClick = {submitClickHandler} className = "next-btn">Submit</button>
            
         </div>  
     </div>
