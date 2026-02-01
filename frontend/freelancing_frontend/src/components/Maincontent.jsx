@@ -34,7 +34,7 @@ useEffect(() => {
 const fetchItems = async () => {
   try {
     const res = await axios.get(
-      "http://127.0.0.1:8000/api/services",
+      "http://127.0.0.1:8000/api/services/",
       getAuthConfig()
     );
 
@@ -87,7 +87,6 @@ async function submitClickHandler() {
     window.alert("Form could not be submitted");
   }
 }
-console.log("Fetched services:", res.data);
 
 
     
