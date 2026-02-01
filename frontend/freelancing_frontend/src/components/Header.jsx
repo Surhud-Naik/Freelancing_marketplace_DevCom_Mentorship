@@ -17,8 +17,8 @@ export default function Header({username, active,setActive,hireOrFreeLance,setHi
         <div>
         <div className = "Header">
           <div className = "left-section">
-            <div className = "catchy-phrase">Catchy Phrase</div>
-            <div className = "tag-line">Tag Line</div>
+            <div className = "catchy-phrase">Gigly</div>
+            <div className = "tag-line">Smile. You’ve got a gig</div>
           </div>
 
           <div className = "right-section">
