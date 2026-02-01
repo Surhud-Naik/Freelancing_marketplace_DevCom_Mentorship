@@ -18,8 +18,7 @@ export default function Maincontent({username}) {
 
   const [phase,setPhase] = useState(1);
 
-  let content = <div> <Searchtool></Searchtool></div>
-
+  let content = <div> <Searchtool></Searchtool> <Services></Services></div>
   const [formsData,setFormsData] = useState(
        { 
         Name: "",
