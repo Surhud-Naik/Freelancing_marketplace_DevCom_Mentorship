@@ -8,6 +8,7 @@ import Form_phase2 from './Form_phase2'
 import Form_phase3 from './Form_phase3'
 import "./Form_phases.css"
 
+
 export default function Maincontent({username}) {
   const[active,setActive] = useState(0);
   
@@ -15,7 +16,7 @@ export default function Maincontent({username}) {
 
   const [phase,setPhase] = useState(1);
 
-  let content = <div> <Searchtool></Searchtool> <Hotpicks></Hotpicks></div>
+  let content = <div> <Searchtool></Searchtool></div>
 
   const [formsData,setFormsData] = useState(
        { 

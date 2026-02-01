@@ -24,6 +24,7 @@ class Service(models.Model):
     Description=models.CharField(max_length=500)
     Youtube_link=models.CharField(max_length=200)
     Buyer_ID=models.JSONField(null=True, blank=True)
+    Price = models.IntegerField(null=True, blank=True)
     No_Of_Buyers=models.IntegerField(default=0,blank=True)
     def __str__(self):
         return self.Service_Name
