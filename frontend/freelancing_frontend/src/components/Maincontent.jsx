@@ -1,7 +1,7 @@
 import Header from './Header'
 import Searchtool from './Searchtool'
 import Services from './Services'
-import { useState } from 'react'
+import { useState,useEffect} from 'react'
 import HeroSection from './HeroSection'
 import Form_phase1 from './Form_phase1'
 import Form_phase2 from './Form_phase2'
@@ -11,12 +11,38 @@ import "../index.css"
 import axios from "axios"
 
 
+
 export default function Maincontent({username}) {
   const[active,setActive] = useState(0);
   
   const [hireOrFreeLance,setHireOrFreeLance] = useState(true)
 
   const [phase,setPhase] = useState(1);
+  const [items, setItems] = useState([]);
+
+   const getAuthConfig = () => ({
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  },
+});
+ 
+useEffect(() => {
+  fetchItems();
+}, []);
+
+
+const fetchItems = async () => {
+  try {
+    const res = await axios.get(
+      "http://127.0.0.1:8000/api/services",
+      getAuthConfig()
+    );
+
+    setItems(Array.isArray(res.data) ? res.data : []);
+  } catch (error) {
+    console.error("Failed to fetch items", error);
+  }
+};
 
   let content = <div> <Searchtool></Searchtool> <Services></Services></div>
   const [formsData,setFormsData] = useState(
@@ -43,24 +69,26 @@ export default function Maincontent({username}) {
            }
         );
     }
+async function submitClickHandler() {
+  setPhase(prev => prev + 1);
+  setActive(0);
 
-    async function submitClickHandler(){
+  try {
+    const response = await axios.post(
+      "http://127.0.0.1:8000/api/services/",
+      formsData,
+      getAuthConfig()
+    );
 
-        setPhase(prev => prev + 1);
-        setActive(0);
+    console.log(response.data);
 
-        try{
-          const response = await axios.post("http://127.0.0.1:8000/api/services/",formsData);
-          console.log(response.data);
+    await fetchItems(); 
+  } catch (error) {
+    window.alert("Form could not be submitted");
+  }
+}
 
-        }
-        catch(error){
-          window.alert("Form could not be submitted")
-
-        }
-    }
-
-
+    
   if(phase == 1){
     content = <div> <HeroSection></HeroSection> <Form_phase1 changeHandler = {changeHandler} formsData = {formsData} setFormsData = {setFormsData} phase = {phase} setPhase = {setPhase}></Form_phase1></div>;
   }
@@ -92,3 +120,4 @@ export default function Maincontent({username}) {
   )  
 
 }
+
